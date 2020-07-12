@@ -41,4 +41,8 @@ export default class SessionsService {
   };
 
   delete = () => true;
+
+  hasActiveSession = () => {
+    return localStorage.getItem('@dragonsSpa:userSession');
+  };
 }

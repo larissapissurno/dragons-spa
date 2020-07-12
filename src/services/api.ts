@@ -1,4 +1,5 @@
-import axios from 'axios';
+import axios, { AxiosRequestConfig } from 'axios';
+
 import UsersService from './UsersService';
 import SessionsService from './SessionsService';
 
@@ -8,5 +9,15 @@ const api = axios.create({
 
 export const usersService = new UsersService();
 export const sessionsService = new SessionsService();
+
+api.interceptors.request.use((config) => {
+  if (!config.url?.endsWith('login') || !config.url?.endsWith('signup')) {
+    if (!sessionsService.hasActiveSession()) {
+      window.location.href = `${process.env.PUBLIC_URL}/login`;
+    }
+  }
+
+  return config;
+});
 
 export default api;

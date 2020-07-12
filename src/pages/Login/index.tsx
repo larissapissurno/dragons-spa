@@ -1,4 +1,4 @@
-import React, { useRef, useState, FormEvent } from 'react';
+import React, { useRef, useEffect } from 'react';
 import { FiLogIn, FiMail, FiLock } from 'react-icons/fi';
 import { Link, useHistory } from 'react-router-dom';
 
@@ -19,6 +19,12 @@ interface LoginForm {
 const Login: React.FC = () => {
   const hisory = useHistory();
   const formRef = useRef<FormHandles>(null);
+
+  useEffect(() => {
+    if (sessionsService.hasActiveSession()) {
+      hisory.push(`${process.env.PUBLIC_URL}/dragons`);
+    }
+  }, []);
 
   const handleSubmit: SubmitHandler<LoginForm> = ({ email, password }) => {
     sessionsService.create(email, password).then((response) => {

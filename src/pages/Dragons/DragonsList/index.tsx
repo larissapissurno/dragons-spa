@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import api from '../../../services/api';
 
 import { Container } from '../../../styles/global';
+import Navbar from '../../../components/Navbar';
 import { TableHead, TableBody } from './styles';
 
 interface Dragon {
@@ -23,6 +24,7 @@ const DragonsList: React.FC = () => {
 
   return (
     <>
+      <Navbar />
       {/* <h1>Lista de Dragões</h1> */}
       <Container>
         <TableHead>

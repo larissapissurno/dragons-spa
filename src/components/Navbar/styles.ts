@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { shade } from 'polished';
 
 export const Nav = styled.nav`
   background: #dadada;
@@ -15,5 +16,10 @@ export const Nav = styled.nav`
 
   svg {
     cursor: pointer;
+    transition: color 0.2s;
+  }
+
+  svg:hover {
+    color: ${shade(0.2, '#282a368f')};
   }
 `;

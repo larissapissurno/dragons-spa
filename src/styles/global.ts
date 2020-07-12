@@ -1,4 +1,4 @@
-import { createGlobalStyle, css } from 'styled-components';
+import styled, { createGlobalStyle } from 'styled-components';
 const mobile = window.matchMedia('(max-width: 600px)').matches;
 
 export default createGlobalStyle`
@@ -19,21 +19,29 @@ export default createGlobalStyle`
   }
 
   #root {
-    ${
-      mobile
-        ? css`
-            max-width: 100%;
-          `
-        : css`
-            max-width: calc(100vw - 300px);
-          `
-    }
-    
-    margin: 0 auto;
-    padding: 40px 20px;
+    /* margin: 0 auto;
+    padding: 40px 20px; */
+    /* display: flex;
+    align-items: center;
+    justify-content: center; */
   }
 
   button {
     cursor: pointer;
   }
+`;
+
+export const Container = styled.div`
+  height: calc(100vh - 100px);
+  width: calc(100vw - 100px);
+  border-radius: 20px;
+  background: #282a36;
+  color: #e3dfdb;
+  /* padding: 20px; */
+  -webkit-box-shadow: 0px 0px 42px 0px rgba(133, 133, 133, 1);
+  -moz-box-shadow: 0px 0px 42px 0px rgba(133, 133, 133, 1);
+  box-shadow: 0px 0px 42px 0px rgba(133, 133, 133, 1);
+  display: block;
+  margin: 50px auto;
+  overflow: hidden;
 `;

@@ -39,7 +39,7 @@ const Signup: React.FC = () => {
     formRef.current?.reset();
 
     toast.success('Você foi cadastrado com sucesso!', {
-      onClose: () => hisory.push(`${process.env.PUBLIC_URL}/`),
+      onClose: () => hisory.push(`${process.env.PUBLIC_URL}/login`),
     });
   };
 

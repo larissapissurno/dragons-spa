@@ -23,7 +23,6 @@ const App: React.FC = () => {
         rtl={false}
         pauseOnHover
       />
-      <ToastContainer />
     </>
   );
 };

@@ -19,7 +19,7 @@ export const TableHead = styled.table`
       padding-left: 40px;
     }
     th:nth-child(2) {
-      width: 40%;
+      width: 30%;
     }
     th:nth-child(3) {
       width: 40%;
@@ -59,7 +59,7 @@ export const TableBody = styled.div`
         padding-left: 40px;
       }
       td:nth-child(2) {
-        width: 40%;
+        width: 30%;
       }
       td:nth-child(3) {
         width: 40%;

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { FiPlus } from 'react-icons/fi';
+import { useHistory } from 'react-router-dom';
 
 import api from '../../../services/api';
 
@@ -16,6 +17,7 @@ interface Dragon {
 }
 
 const DragonsList: React.FC = () => {
+  const history = useHistory();
   const [dragons, setDragons] = useState<Dragon[]>([]);
 
   useEffect(() => {
@@ -24,12 +26,16 @@ const DragonsList: React.FC = () => {
     });
   }, []);
 
+  const handleCreateDragon = () => {
+    history.push(`${process.env.PUBLIC_URL}/dragons/create`);
+  };
+
   return (
     <>
       <Navbar />
       <Header>
         <h1>Lista de Dragões</h1>
-        <Button title="Novo Dragão">
+        <Button title="Novo Dragão" onClick={handleCreateDragon}>
           <FiPlus />
         </Button>
       </Header>

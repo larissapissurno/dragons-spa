@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { shade } from 'polished';
 
 export const Nav = styled.nav`
-  background: #dadada;
+  background: #e1e1e5;
   width: calc(100vw - 100px);
   border-radius: 20px;
   color: #282a36;
@@ -13,6 +13,7 @@ export const Nav = styled.nav`
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
+  font-size: 19px;
 
   svg {
     cursor: pointer;

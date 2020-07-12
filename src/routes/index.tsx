@@ -4,6 +4,7 @@ import { Switch, Route, Redirect } from 'react-router-dom';
 import Login from '../pages/Login';
 import Signup from '../pages/Signup';
 import DragonsList from '../pages/Dragons/DragonsList';
+import DragonsCreate from '../pages/Dragons/DragonsCreate';
 
 const Routes: React.FC = () => (
   <Switch>
@@ -14,6 +15,10 @@ const Routes: React.FC = () => (
       exact
       path={process.env.PUBLIC_URL + '/dragons'}
       component={DragonsList}
+    />
+    <Route
+      path={process.env.PUBLIC_URL + '/dragons/create'}
+      component={DragonsCreate}
     />
   </Switch>
 );

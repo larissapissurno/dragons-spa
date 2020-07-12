@@ -51,3 +51,14 @@ export const Container = styled.div<ContainerProps>`
     margin-right: 16px;
   }
 `;
+
+export const Content = styled.div`
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+
+  label {
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+`;

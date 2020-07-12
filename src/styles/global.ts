@@ -32,16 +32,15 @@ export default createGlobalStyle`
 `;
 
 export const Container = styled.div`
-  height: calc(100vh - 100px);
+  height: calc(100vh - 160px);
   width: calc(100vw - 100px);
   border-radius: 20px;
   background: #282a36;
   color: #e3dfdb;
-  /* padding: 20px; */
   -webkit-box-shadow: 0px 0px 42px 0px rgba(133, 133, 133, 1);
   -moz-box-shadow: 0px 0px 42px 0px rgba(133, 133, 133, 1);
   box-shadow: 0px 0px 42px 0px rgba(133, 133, 133, 1);
   display: block;
-  margin: 50px auto;
+  margin: 40px auto;
   overflow: hidden;
 `;

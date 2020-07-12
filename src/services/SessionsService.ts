@@ -3,13 +3,7 @@ import { compare } from 'bcryptjs';
 
 import { usersService } from './api';
 import authConfig from '../config/auth';
-
-interface User {
-  id: string;
-  name: string;
-  email: string;
-  password: string;
-}
+import User from '../interfaces/user';
 
 export default class SessionsService {
   create = async (email: string, password: string) => {
@@ -44,5 +38,14 @@ export default class SessionsService {
 
   hasActiveSession = () => {
     return localStorage.getItem('@dragonsSpa:userSession');
+  };
+
+  getUserData = (): User => {
+    const userSessionStoraged = localStorage.getItem('@dragonsSpa:userSession');
+    const userSession = userSessionStoraged
+      ? JSON.parse(userSessionStoraged)
+      : null;
+
+    return userSession.user as User;
   };
 }

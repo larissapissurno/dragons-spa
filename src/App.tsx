@@ -13,6 +13,16 @@ const App: React.FC = () => (
       <Routes />
     </BrowserRouter>
     <GlobalStyle />
+    <ToastContainer
+      position="top-right"
+      autoClose={2000}
+      hideProgressBar={false}
+      newestOnTop={false}
+      closeOnClick
+      rtl={false}
+      pauseOnHover
+    />
+    {/* Same as */}
     <ToastContainer />
   </>
 );

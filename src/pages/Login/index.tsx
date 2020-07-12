@@ -1,18 +1,34 @@
 import React, { useRef, useState, FormEvent } from 'react';
 import { FiLogIn, FiMail, FiLock } from 'react-icons/fi';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
+
 import { SubmitHandler, FormHandles } from '@unform/core';
 import { Form } from '@unform/web';
+import { toast } from 'react-toastify';
 
+import { sessionsService } from '../../services/api';
 import { Content, LoginBox } from './styles';
 import Input from '../../components/Input';
 import Button from '../../components/Button';
 
+interface LoginForm {
+  email: string;
+  password: string;
+}
+
 const Login: React.FC = () => {
+  const hisory = useHistory();
   const formRef = useRef<FormHandles>(null);
 
-  const handleSubmit: SubmitHandler<FormData> = (data) => {
-    console.log(data);
+  const handleSubmit: SubmitHandler<LoginForm> = ({ email, password }) => {
+    sessionsService.create(email, password).then((response) => {
+      if (!response) {
+        toast.dark('Email e/ou senha incorretos.');
+        return;
+      }
+
+      hisory.push(`${process.env.PUBLIC_URL}/dragons`);
+    });
   };
   return (
     <Content>

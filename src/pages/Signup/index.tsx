@@ -6,7 +6,9 @@ import { SubmitHandler, FormHandles } from '@unform/core';
 import { Form } from '@unform/web';
 import { hash } from 'bcryptjs';
 import { toast } from 'react-toastify';
+import { uuid } from 'uuidv4';
 
+import { usersService } from '../../services/api';
 import { Content, SignupBox } from './styles';
 import Input from '../../components/Input';
 import Button from '../../components/Button';
@@ -22,30 +24,21 @@ const Signup: React.FC = () => {
   const formRef = useRef<FormHandles>(null);
   const hisory = useHistory();
 
-  const handleSubmit: SubmitHandler<SignupForm> = (data) => {
+  const handleSubmit: SubmitHandler<SignupForm> = async (data) => {
     const { name, email, password } = data;
-    const storagedUsers = localStorage.getItem('@dragons-spa:users');
-    const users = storagedUsers ? JSON.parse(storagedUsers) : [];
+    const encryptedPassword = await hash(password, 8);
     const user = {
+      id: uuid(),
       name,
       email,
-      password: hash(password, 8),
+      password: encryptedPassword,
     };
 
-    users.push(user);
-
-    localStorage.setItem('@dragons-spa:users', JSON.stringify(users));
+    usersService.create(user);
 
     formRef.current?.reset();
 
     toast.success('Você foi cadastrado com sucesso!', {
-      position: 'top-right',
-      autoClose: 2000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
       onClose: () => hisory.push(`${process.env.PUBLIC_URL}/`),
     });
   };
@@ -54,7 +47,6 @@ const Signup: React.FC = () => {
     const formData = formRef.current?.getData() as SignupForm;
 
     if (formData?.password !== formData?.confirmPassword) {
-      console.log(formData?.password, formData?.confirmPassword);
       formRef.current
         ?.getFieldRef('confirmPassword')
         .setCustomValidity('Confirme a senha corretamente');

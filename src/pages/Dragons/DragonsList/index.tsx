@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react';
+import { FiPlus } from 'react-icons/fi';
 
 import api from '../../../services/api';
 
 import { Container } from '../../../styles/global';
 import Navbar from '../../../components/Navbar';
-import { TableHead, TableBody } from './styles';
+import Button from '../../../components/Button';
+import { TableHead, TableBody, Header } from './styles';
 
 interface Dragon {
   id: string;
@@ -25,7 +27,12 @@ const DragonsList: React.FC = () => {
   return (
     <>
       <Navbar />
-      {/* <h1>Lista de Dragões</h1> */}
+      <Header>
+        <h1>Lista de Dragões</h1>
+        <Button title="Novo Dragão">
+          <FiPlus />
+        </Button>
+      </Header>
       <Container>
         <TableHead>
           <thead>

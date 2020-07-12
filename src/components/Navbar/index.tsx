@@ -14,7 +14,7 @@ const Navbar: React.FC = () => {
     const { name } = sessionsService.getUserData();
     const [firstName] = name.split(' ');
 
-    setGreet(`Olá ${firstName}, seja bem vindo(a)`);
+    setGreet(`Olá ${firstName}, seja bem vindo (a)!`);
   }, []);
 
   const handleLogout = () => {

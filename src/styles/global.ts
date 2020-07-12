@@ -32,7 +32,7 @@ export default createGlobalStyle`
 `;
 
 export const Container = styled.div`
-  height: calc(100vh - 160px);
+  height: calc(100vh - 225px);
   width: calc(100vw - 100px);
   border-radius: 20px;
   background: #282a36;
@@ -41,6 +41,6 @@ export const Container = styled.div`
   -moz-box-shadow: 0px 0px 42px 0px rgba(133, 133, 133, 1);
   box-shadow: 0px 0px 42px 0px rgba(133, 133, 133, 1);
   display: block;
-  margin: 40px auto;
+  margin: 20px auto;
   overflow: hidden;
 `;

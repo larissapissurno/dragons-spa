@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { shade } from 'polished';
 
 export const TableHead = styled.table`
   width: 100%;
@@ -64,6 +65,27 @@ export const TableBody = styled.div`
       td:nth-child(3) {
         width: 40%;
       }
+    }
+  }
+`;
+
+export const Header = styled.div`
+  width: calc(100vw - 100px);
+  color: #7666c9;
+  margin: 30px auto 0 auto;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+
+  button {
+    width: 52px;
+    border-radius: 50%;
+    color: #ffffff;
+    background: #00ad5f;
+
+    :hover {
+      background: ${shade(0.2, '#00ad5f')};
     }
   }
 `;

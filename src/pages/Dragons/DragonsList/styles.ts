@@ -65,6 +65,18 @@ export const TableBody = styled.div`
       td:nth-child(3) {
         width: 40%;
       }
+      td:nth-child(4) {
+        text-align: center;
+
+        svg {
+          cursor: pointer;
+          margin-left: 15px;
+        }
+
+        svg:nth-child(2) {
+          color: #f0612c;
+        }
+      }
     }
   }
 `;

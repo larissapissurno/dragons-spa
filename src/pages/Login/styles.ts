@@ -53,4 +53,10 @@ export const LoginBox = styled.div`
       color: ${shade(0.2, '#e3dfdb')};
     }
   }
+
+  form {
+    div {
+      margin-bottom: 10px;
+    }
+  }
 `;

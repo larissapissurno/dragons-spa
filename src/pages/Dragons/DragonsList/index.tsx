@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { FiPlus } from 'react-icons/fi';
+import { FiPlus, FiEdit, FiTrash } from 'react-icons/fi';
 import { useHistory } from 'react-router-dom';
 
 import api from '../../../services/api';
@@ -30,6 +30,10 @@ const DragonsList: React.FC = () => {
     history.push(`${process.env.PUBLIC_URL}/dragons/create`);
   };
 
+  const handleUpdateDragon = (id: string) => {
+    history.push(`${process.env.PUBLIC_URL}/dragons/${id}`);
+  };
+
   return (
     <>
       <Navbar />
@@ -46,6 +50,7 @@ const DragonsList: React.FC = () => {
               <th>Data de criação</th>
               <th>Nome</th>
               <th>Tipo</th>
+              <th></th>
             </tr>
           </thead>
         </TableHead>
@@ -57,6 +62,10 @@ const DragonsList: React.FC = () => {
                   <td>{new Date(dragon.createdAt).toLocaleDateString()}</td>
                   <td>{dragon.name}</td>
                   <td>{dragon.type}</td>
+                  <td>
+                    <FiEdit onClick={() => handleUpdateDragon(dragon.id)} />
+                    <FiTrash />
+                  </td>
                 </tr>
               ))}
             </tbody>

@@ -32,4 +32,10 @@ export const SignupBox = styled.div`
     text-align: center;
     margin-bottom: 20px;
   }
+
+  form {
+    div {
+      margin-bottom: 10px;
+    }
+  }
 `;

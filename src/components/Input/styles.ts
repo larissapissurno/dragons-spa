@@ -55,10 +55,14 @@ export const Container = styled.div<ContainerProps>`
 export const Content = styled.div`
   display: flex;
   flex-direction: column;
-  flex: 1;
+  width: 49%;
 
   label {
     font-weight: bold;
     margin-bottom: 5px;
+  }
+
+  @media (max-width: 1200px) {
+    width: 100%;
   }
 `;

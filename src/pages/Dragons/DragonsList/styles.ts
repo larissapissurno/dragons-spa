@@ -63,10 +63,11 @@ export const TableBody = styled.div`
         width: 30%;
       }
       td:nth-child(3) {
-        width: 40%;
+        width: 30%;
       }
       td:nth-child(4) {
         text-align: center;
+        width: 20%;
 
         svg {
           cursor: pointer;

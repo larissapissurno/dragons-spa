@@ -23,15 +23,18 @@ export const Header = styled.div`
 `;
 
 export const ContentForm = styled.div`
-  padding: 20px;
+  padding: 2%;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
 
-  div {
-    max-width: 99%;
-    margin: 0;
+  @media (max-width: 1200px) {
+    flex-direction: column;
+
+    div {
+      margin-bottom: 10px;
+    }
   }
 `;
 
@@ -47,7 +50,7 @@ export const ButtonSave = styled.button`
   margin-top: 16px;
   transition: background-color 0.2s;
   float: right;
-  margin-right: 20px;
+  margin-right: 2%;
 
   &:hover {
     background: ${shade(0.2, '#00ad5f')};

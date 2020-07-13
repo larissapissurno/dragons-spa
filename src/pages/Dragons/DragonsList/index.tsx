@@ -2,8 +2,11 @@ import React, { useEffect, useState } from 'react';
 import { FiPlus, FiEdit, FiTrash } from 'react-icons/fi';
 import { useHistory } from 'react-router-dom';
 
-import api from '../../../services/api';
+import { toast } from 'react-toastify';
 
+import Swal from 'sweetalert2';
+
+import api from '../../../services/api';
 import { Container } from '../../../styles/global';
 import Navbar from '../../../components/Navbar';
 import Button from '../../../components/Button';
@@ -32,6 +35,27 @@ const DragonsList: React.FC = () => {
 
   const handleUpdateDragon = (id: string) => {
     history.push(`${process.env.PUBLIC_URL}/dragons/${id}`);
+  };
+
+  const handleDeleteDragon = ({ id, name }: Dragon) => {
+    Swal.fire({
+      title: 'Você tem certeza?',
+      text: `O dragão ${name} será removido e pode nunca mais retornar! 🐲😟`,
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#d33',
+      cancelButtonColor: '#3085d6',
+      confirmButtonText: 'Remover',
+      cancelButtonText: 'Cancelar',
+    }).then((result) => {
+      if (result.value) {
+        api.delete(`dragon/${id}`).then(() => {
+          toast.dark(`${name} foi removido. 🐉`);
+          const newDragonList = dragons.filter((dragon) => dragon.id !== id);
+          setDragons(newDragonList);
+        });
+      }
+    });
   };
 
   return (
@@ -64,7 +88,7 @@ const DragonsList: React.FC = () => {
                   <td>{dragon.type}</td>
                   <td>
                     <FiEdit onClick={() => handleUpdateDragon(dragon.id)} />
-                    <FiTrash />
+                    <FiTrash onClick={() => handleDeleteDragon(dragon)} />
                   </td>
                 </tr>
               ))}

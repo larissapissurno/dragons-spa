@@ -30,7 +30,7 @@ export const TableHead = styled.table`
 
 export const TableBody = styled.div`
   overflow: auto;
-  max-height: calc(100vh - 200px);
+  max-height: calc(100vh - 290px);
 
   ::-webkit-scrollbar {
     width: 10px;

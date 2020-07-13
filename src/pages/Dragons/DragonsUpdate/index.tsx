@@ -15,7 +15,7 @@ import Input from '../../../components/Input';
 import { Header, ContentForm, ButtonSave } from './styles';
 
 interface Dragon {
-  id: string;
+  id?: string;
   name: string;
   type: string;
   histories: string[];
@@ -43,7 +43,8 @@ const DragonsUpdate: React.FC<RouterProps> = ({ match }) => {
   };
 
   const handleSubmit: SubmitHandler<Dragon> = (data) => {
-    api.put('dragon', data).then(() => {
+    data.id = dragon?.id;
+    api.put(`dragon/${data.id}`, data).then(() => {
       formRef.current?.reset();
       toast.success('🐉 Dragão editado com sucesso!', {
         onClose: () => history.push(`${process.env.PUBLIC_URL}/dragons`),

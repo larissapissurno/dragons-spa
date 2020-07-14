@@ -1,5 +1,4 @@
 import styled, { createGlobalStyle } from 'styled-components';
-const mobile = window.matchMedia('(max-width: 600px)').matches;
 
 export default createGlobalStyle`
   * {

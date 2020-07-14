@@ -29,6 +29,10 @@ const DragonsCreate: React.FC = () => {
   };
 
   const handleSubmit: SubmitHandler<DragonForm> = (data) => {
+    if (!data.name || !data.type) {
+      return;
+    }
+
     api.post('dragon', data).then(() => {
       formRef.current?.reset();
       toast.success('🐉 Dragão adicionado com sucesso!', {

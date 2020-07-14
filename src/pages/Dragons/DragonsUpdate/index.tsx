@@ -43,6 +43,10 @@ const DragonsUpdate: React.FC<RouterProps> = ({ match }) => {
   };
 
   const handleSubmit: SubmitHandler<Dragon> = (data) => {
+    if (!data.name || !data.type) {
+      return;
+    }
+
     data.id = dragon?.id;
     api.put(`dragon/${data.id}`, data).then(() => {
       formRef.current?.reset();

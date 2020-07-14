@@ -13,7 +13,7 @@ export const sessionsService = new SessionsService();
 api.interceptors.request.use((config) => {
   if (!config.url?.endsWith('login') || !config.url?.endsWith('signup')) {
     if (!sessionsService.hasActiveSession()) {
-      window.location.href = `${process.env.PUBLIC_URL}/login`;
+      window.location.assign(`${process.env.PUBLIC_URL}/login`);
     }
   }
 

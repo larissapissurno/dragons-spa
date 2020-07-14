@@ -57,6 +57,7 @@ export const LoginBox = styled.div`
   form {
     div {
       margin-bottom: 10px;
+      width: 100%;
     }
   }
 `;

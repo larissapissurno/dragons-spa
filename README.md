@@ -1,4 +1,4 @@
-<h1 align="center">Dragon SPA</h1>
+<h1 align="center">Dragons SPA</h1>
 <p align="center">
   <a href="https://github.com/larissapissurno/dragons-spa#readme">
     <img src="https://img.shields.io/badge/version-1.0.0-blue.svg?cacheSeconds=2592000"/>

@@ -36,6 +36,7 @@ export const SignupBox = styled.div`
   form {
     div {
       margin-bottom: 10px;
+      width: 100%;
     }
   }
 `;
